@@ -23,13 +23,15 @@ Provenance:
 - Contract: `40ce1fb59bfe27a26bc878b193d694414c3b491fdc365cb421a96000b6b1c3a0`
 - IIFE SHA-256: `cd6a495dd3489a4161a7f7d3d8ce414cb77cc426636bac58181aace67cddcc2f`
 - Size: 5744 bytes, including source/contract banner; no source map or host path.
+- Names: `life-core` (banner and import path) and the `LifeEnrollment` global are
+  Core's names at the pinned commit and part of the hashed bytes.
 
 Built from the reviewed Core source with Bun browser target, IIFE format,
 minification, and this entry (resolved to the pinned source):
 
 ```ts
 import {ENROLLMENT_POLICY,enrollmentApproval,validateDeviceSession,enrollmentPollResult,sessionRevocationResult} from 'life-core/enrollment';
-Object.assign(globalThis,{SomaEnrollment:{ENROLLMENT_POLICY,enrollmentApproval,validateDeviceSession,enrollmentPollResult,sessionRevocationResult}});
+Object.assign(globalThis,{LifeEnrollment:{ENROLLMENT_POLICY,enrollmentApproval,validateDeviceSession,enrollmentPollResult,sessionRevocationResult}});
 ```
 
 For an update, obtain Core's reviewed source/artifact and conformance evidence,
