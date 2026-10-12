@@ -1,6 +1,6 @@
 # Birthdays
 
-Native iPhone birthday reminders backed by Soma, with notifications
+Native iPhone birthday reminders backed by [Soma](https://github.com/alexjmiller5/soma), with notifications
 scheduled on the phone. There is no active server-side birthday job. The Python
 Soma Tasks adapter is tested but not connected to a scheduler.
 

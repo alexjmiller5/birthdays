@@ -37,7 +37,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "httpx", specifier = ">=0.28" },
-    { name = "soma", git = "https://github.com/alexjmiller5/soma.git?rev=1950bdb22ad8965bcee776ef4051f1665b590aeb" },
+    { name = "soma", git = "https://github.com/alexjmiller5/soma.git?rev=a9bfc7b3f010f9e502ae09a391ef5c681a9b62bd" },
 ]
 
 [package.metadata.requires-dev]
@@ -203,4 +203,4 @@ wheels = [
 [[package]]
 name = "soma"
 version = "0.1.0"
-source = { git = "https://github.com/alexjmiller5/soma.git?rev=1950bdb22ad8965bcee776ef4051f1665b590aeb#1950bdb22ad8965bcee776ef4051f1665b590aeb" }
+source = { git = "https://github.com/alexjmiller5/soma.git?rev=a9bfc7b3f010f9e502ae09a391ef5c681a9b62bd#a9bfc7b3f010f9e502ae09a391ef5c681a9b62bd" }

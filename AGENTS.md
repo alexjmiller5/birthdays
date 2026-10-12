@@ -29,6 +29,8 @@ application namespace are stable across display-name changes.
   in `BirthdaysAccess`: seven People read columns and patch-only notify_birthday.
   Existing reader connections retain five-column reads until explicit browser
   reenrollment. Never substitute Iris's full-replica `/login` contract.
+- Compatibility names stay as-is: Keychain account `life-data` (renaming disconnects
+  installed phones) and `LifeEnrollment`/`life-core` inside the hash-pinned resource.
 - Credentials belong in this app's device-only Keychain, never the bundle,
   defaults, URLs or diagnostics. Core owns exact scope/identity receipt validation;
   phone People read and Tasks writer use separate identities. Candidate cleanup

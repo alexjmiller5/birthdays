@@ -6,8 +6,8 @@ and each receipt. The functions remain injectable for host conformance tests.
 There is no duplicate validator, JavaScript engine, installed CLI or native auth
 requirement in the task writer.
 
-`pyproject.toml` and `uv.lock` pin the public `soma` library to commit
-`5f23a6efa39c5f010c688a5f6b9f0359b2547c23`. Its standard-library-only
+`pyproject.toml` and `uv.lock` pin the public [`soma`](https://github.com/alexjmiller5/soma)
+library to commit `a9bfc7b3f010f9e502ae09a391ef5c681a9b62bd`. Its standard-library-only
 `soma.creation.validate_creation_session` and
 `validate_creation_receipt` functions match contract
 `40ce1fb59bfe27a26bc878b193d694414c3b491fdc365cb421a96000b6b1c3a0`.

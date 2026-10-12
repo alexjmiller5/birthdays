@@ -24,4 +24,4 @@ src = ["src", "tests"]
 line-length = 100
 
 [tool.uv.sources]
-soma = { git = "https://github.com/alexjmiller5/soma.git", rev = "1950bdb22ad8965bcee776ef4051f1665b590aeb" }
+soma = { git = "https://github.com/alexjmiller5/soma.git", rev = "a9bfc7b3f010f9e502ae09a391ef5c681a9b62bd" }
