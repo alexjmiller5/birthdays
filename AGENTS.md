@@ -102,3 +102,5 @@ activate server-side tasks.
 The separate writer identity must stay narrowly scoped and must never be reused
 by the phone. Project signing inputs are declared in the manual iOS workflow;
 provider credentials never reach the native app or the Tasks library.
+
+Ordinary check workflows run on main pushes and pull requests, with superseded runs canceled. Long UI and accessibility suites run only through manual workflow dispatch.

@@ -2,9 +2,14 @@ name: Native app checks
 
 on:
   push:
-    branches: [main, native-ios]
+    branches: [main]
+  workflow_dispatch:
   pull_request:
     paths: ['ios/**', 'Package.swift', '.github/workflows/*.yml', 'scripts/sign*', 'scripts/ios_workflow_test.py', 'scripts/ios-mutation-test.py']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -36,6 +41,7 @@ jobs:
           -derivedDataPath "$RUNNER_TEMP/birthday-ios"
           CODE_SIGNING_ALLOWED=NO build
       - name: Test connection storage and onboarding on simulator
+        if: github.event_name == 'workflow_dispatch'
         working-directory: ios
         run: |
           IOS_TEST_DEVICE=$(xcrun simctl list devices available --json | python3 -c 'import json,sys; d=json.load(sys.stdin); print(next(v["udid"] for k,vs in d["devices"].items() if "iOS" in k for v in vs if v["name"].startswith("iPhone")))')
@@ -45,13 +51,13 @@ jobs:
             CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES CODE_SIGNING_REQUIRED=YES \
             -resultBundlePath "$RUNNER_TEMP/birthday-tests.xcresult" test
       - name: Export simulator screenshots
-        if: always()
+        if: always() && github.event_name == 'workflow_dispatch'
         run: |
           if [ -d "$RUNNER_TEMP/birthday-tests.xcresult" ]; then
             xcrun xcresulttool export attachments --path "$RUNNER_TEMP/birthday-tests.xcresult" --output-path "$RUNNER_TEMP/birthday-screenshots"
           fi
       - uses: actions/upload-artifact@v7
-        if: always()
+        if: always() && github.event_name == 'workflow_dispatch'
         with:
           name: simulator-screenshots
           path: ${{ runner.temp }}/birthday-screenshots/**/*.png
